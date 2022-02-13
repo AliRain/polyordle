@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+:root {
+  --primary: #ededed;
+  --secondary: #f5f5f5;
+
+  --background: #121212;
+}
+
+.light-mode {
+  --primary: #121212;
+  --secondary: #0a0a0a;
+
+  --background: #ededed;
+}
+
+body {
+  background-color: var(--background);
+}
