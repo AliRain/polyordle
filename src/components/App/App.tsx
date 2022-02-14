@@ -11,8 +11,6 @@ import { isDeemphasizeVowels, isLightMode, setLightMode } from 'utils/dom';
 const App: React.VFC = () => {
   const deemphasizeVowels = useState(isDeemphasizeVowels());
   const lightMode = useState(isLightMode());
-  const numberOfGuesses = useState(6);
-  const numberOfLettersPerGuess = useState(5);
   const wordSource = useState(WordSource.Wordle);
 
   useEffect(() => {
@@ -21,7 +19,7 @@ const App: React.VFC = () => {
   }, [lightMode]);
 
   return (
-    <AppContext.Provider value={{ deemphasizeVowels, lightMode, numberOfGuesses, numberOfLettersPerGuess, wordSource }}>
+    <AppContext.Provider value={{ deemphasizeVowels, lightMode, wordSource }}>
       <Header />
       <Settings />
     </AppContext.Provider>

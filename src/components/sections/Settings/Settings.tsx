@@ -2,7 +2,6 @@ import { useAppContext } from 'contexts/app';
 import { WordSource } from 'types/enums';
 import Dropdown from 'components/shared/Dropdown';
 import { Wrapper } from './styles';
-import Input from 'components/shared/Input';
 import Checkbox from 'components/shared/Checkbox';
 
 const wordSources = [] as { value: string; label: string }[];
@@ -15,7 +14,7 @@ for (let index = 0; index < keys.length; index++) {
 }
 
 const Settings: React.VFC = () => {
-  const { deemphasizeVowels, lightMode, numberOfGuesses, numberOfLettersPerGuess, wordSource } = useAppContext();
+  const { deemphasizeVowels, lightMode, wordSource } = useAppContext();
 
   return (
     <Wrapper>
@@ -25,22 +24,6 @@ const Settings: React.VFC = () => {
           value={wordSource[0]}
           onChange={v => wordSource[1](v as unknown as WordSource)}
           options={wordSources}
-        />
-      </span>
-      <span>
-        <Input
-          label="Number of guesses: "
-          type="number"
-          value={numberOfGuesses[0].toString()}
-          onChange={v => numberOfGuesses[1](parseInt(v.target.value, 10))}
-        />
-      </span>
-      <span>
-        <Input
-          label="Number of letters per guess: "
-          type="number"
-          value={numberOfLettersPerGuess[0].toString()}
-          onChange={v => numberOfLettersPerGuess[1](parseInt(v.target.value, 10))}
         />
       </span>
       <span>
