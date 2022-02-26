@@ -10,3 +10,12 @@ export const Wrapper = styled.div`
     margin-right: 10px;
   }
 `;
+
+export const Button = styled.button`
+  background-color: var(--primary);
+  color: var(--background);
+  padding: 2px 5px;
+  border-radius: 3px;
+  position: relative;
+  top: -1px;
+`;

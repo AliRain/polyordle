@@ -1,7 +1,7 @@
 import { useAppContext } from 'contexts/app';
 import { WordSource } from 'types/enums';
 import Dropdown from 'components/shared/Dropdown';
-import { Wrapper } from './styles';
+import { Button, Wrapper } from './styles';
 import Checkbox from 'components/shared/Checkbox';
 
 const wordSources = [] as { value: string; label: string }[];
@@ -15,6 +15,7 @@ for (let index = 0; index < keys.length; index++) {
 
 const Settings: React.VFC = () => {
   const { deemphasizeVowels, lightMode, wordSource } = useAppContext();
+  const themeSwitcherLabel = lightMode[0] ? 'Dark Mode' : 'Light Mode';
 
   return (
     <Wrapper>
@@ -30,7 +31,7 @@ const Settings: React.VFC = () => {
         <Checkbox label="Deemphasize vowels: " checked={deemphasizeVowels[0]} onChange={deemphasizeVowels[1]} />
       </span>
       <span>
-        <Checkbox label="Light mode: " checked={lightMode[0]} onChange={lightMode[1]} />
+        <Button onClick={() => lightMode[1](!lightMode[0])}>{themeSwitcherLabel}</Button>
       </span>
     </Wrapper>
   );
