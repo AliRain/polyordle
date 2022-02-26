@@ -8,4 +8,5 @@ export enum WordSource {
   Wordle,
   Dordle,
   Quordle,
+  Octordle,
 }

@@ -17,6 +17,11 @@ const wordSourceSettings: Record<WordSource, IWordSourceSettings> = {
     numberOfGuesses: 9,
     numberOfWords: 4,
   },
+  [WordSource.Octordle]: {
+    numberOfLetters: 5,
+    numberOfGuesses: 13,
+    numberOfWords: 8,
+  },
 };
 
 export const getWordSourceSettings = (wordSource: WordSource): IWordSourceSettings => wordSourceSettings[wordSource];
