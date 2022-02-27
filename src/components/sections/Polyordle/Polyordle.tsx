@@ -2,10 +2,10 @@ import { useAppContext } from 'contexts/app';
 import { getWordSourceSettings } from 'utils/wordSourceSettings';
 import { Guess, Letter, Word, WordsWrapper, Wrapper } from './styles';
 
-const Wordle: React.VFC = () => {
+const Polyordle: React.VFC = () => {
   const {
     wordSource: [wordSource],
-    results: [results, setresults],
+    guesses: [guesses],
   } = useAppContext();
 
   const { numberOfGuesses, numberOfLetters, numberOfWords } = getWordSourceSettings(wordSource);
@@ -21,7 +21,7 @@ const Wordle: React.VFC = () => {
               <Guess key={j}>
                 {/* each letter in that guess */}
                 {new Array(numberOfLetters).fill(0).map((_, k) => (
-                  <Letter key={k}>{results[i]?.[j]?.result[k]}</Letter>
+                  <Letter key={k}>{guesses[i]?.[j]?.results[k]}</Letter>
                 ))}
               </Guess>
             ))}
@@ -32,4 +32,4 @@ const Wordle: React.VFC = () => {
   );
 };
 
-export default Wordle;
+export default Polyordle;

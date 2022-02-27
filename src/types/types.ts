@@ -6,14 +6,14 @@ export interface IAppContext {
   deemphasizeVowels: [boolean, Dispatch<SetStateAction<boolean>>];
   lightMode: [boolean, Dispatch<SetStateAction<boolean>>];
   wordSource: [WordSource, Dispatch<SetStateAction<WordSource>>];
-  results: [IResult[][], Dispatch<SetStateAction<IResult[][]>>];
+  guesses: [IResult[][], Dispatch<SetStateAction<IResult[][]>>];
 }
 
 export type ILetterFrequencies = Record<string, number>;
 
 export interface IResult {
   letter: string;
-  result: Status[];
+  results: Status[];
 }
 
 export interface IWordSourceSettings {

@@ -4,7 +4,7 @@ import './styles.css';
 
 import Header from 'components/sections/Header';
 import Settings from 'components/sections/Settings';
-import Wordle from 'components/sections/Wordle';
+import Polyordle from 'components/sections/Polyordle';
 import { AppContext } from 'contexts/app';
 import { WordSource } from 'types/enums';
 import { IResult } from 'types/types';
@@ -14,7 +14,7 @@ const App: React.VFC = () => {
   const deemphasizeVowels = useState(isDeemphasizeVowels());
   const lightMode = useState(isLightMode());
   const wordSource = useState(WordSource.Wordle);
-  const results = useState([] as IResult[][]);
+  const guesses = useState([] as IResult[][]);
 
   useEffect(() => {
     setLightMode(lightMode[0]);
@@ -22,10 +22,10 @@ const App: React.VFC = () => {
   }, [lightMode]);
 
   return (
-    <AppContext.Provider value={{ deemphasizeVowels, lightMode, wordSource, results }}>
+    <AppContext.Provider value={{ deemphasizeVowels, lightMode, wordSource, guesses }}>
       <Header />
       <Settings />
-      <Wordle />
+      <Polyordle />
     </AppContext.Provider>
   );
 };
