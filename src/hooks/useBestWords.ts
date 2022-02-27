@@ -48,12 +48,13 @@ function getBestWord(sortedWords: string[], guesses: IResult[][]): string | unde
       for (let letterIndex = 0; letterIndex < guess.length; letterIndex++) {
         const { letter, result } = guess[letterIndex];
 
-        if (result === Status.Absent && word.includes(letter)) return false;
-        if (result === Status.Present) {
+        // HACK: only checking the first word
+        if (result[0] === Status.Absent && word.includes(letter)) return false;
+        if (result[0] === Status.Present) {
           if (!word.includes(letter)) return false;
           if (word.split('')[letterIndex] === letter) return false;
         }
-        if (result === Status.Correct && word.split('')[letterIndex] !== letter) return false;
+        if (result[0] === Status.Correct && word.split('')[letterIndex] !== letter) return false;
       }
     }
 
